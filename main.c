@@ -5,16 +5,11 @@
 #include"functions.cpp"
 #include"prototyping.cpp"
 
-
 int main()
 {
 	mainmenu();
 
 return 0;
 }
-
-
-
-
 
 

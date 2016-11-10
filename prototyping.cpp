@@ -6,3 +6,8 @@ void searchadd(char ch[]);
 void clearsearch();
 void deletedirectory();
 void createdirectory();
+void response();
+void delay(unsigned int);
+void loading();
+void dirappend();
+void linedelete();

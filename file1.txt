@@ -1,0 +1,6 @@
+This has been my first ever project in c lang.
+I have not quite undertaken it seriously but still dabbled along the way and somehow completed it.
+Although it has been quite a pleasureable experience being able to undertake a project with my group.
+They co-operated pretty well and thus were able to provide end-to-end support for the project.
+Overall it felt somewhat nice being able to create something on our own.
+PS: Credits to the internet for error rectification!

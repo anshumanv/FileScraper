@@ -1,26 +1,19 @@
-#include <stdio.h>
 #include <dirent.h>
-
-static void scan_dir(const char *dir)
+#include <stdio.h>
+ 
+int main(void)
 {
-    struct dirent * entry;
-    DIR *d = opendir( dir );
-
-    if (d == 0) {
-        perror("opendir");
-        return;
+    DIR *d;
+    struct dirent *dir;
+    d = opendir("./files");
+    printf("Files are as Follows:-");
+    if (d)
+    {
+        while ((dir = readdir(d)) != NULL)
+        {
+            printf("%s\n", dir->d_name);
+        }
+        closedir(d);
     }
-
-    while ((entry = readdir(d)) != 0) {
-        printf("%s\n", entry->d_name);
-        //read your file here
-    }
-    closedir(d);
-}
-
-
-int main(int argc, char ** argv)
-{
-    scan_dir(argv[1]);
-    return 0;
+    return(0);
 }
