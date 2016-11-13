@@ -3,3 +3,8 @@ football.txt
 volleyball.txt
 Anime.txt
 pixel.txt
+physics.txt
+astronomy.txt
+3muskeeters.txt
+MartinLuther.txt
+StudyScarletSherlock.txt

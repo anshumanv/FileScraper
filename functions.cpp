@@ -5,6 +5,8 @@
 // MAIN MENU
 void mainmenu()
 {	
+	fflush(stdin);
+	
 	system("cls");
 	printf("           -------------------------------------------------------------");
 	printf("\t\t\t\t\tWELCOME TO QUICK SEARCH !\n\n\n");
@@ -88,7 +90,7 @@ void mainmenu()
 
 int strcount(void)   
 {
-	
+	fflush(stdin);
 	
 	char a[25],b[25];
 	printf("Enter String to be Searched\n\n");
@@ -135,6 +137,8 @@ int strcount(void)
 
 void sd()
 {	
+	fflush(stdin);
+
 	FILE *sd;
 	sd = fopen("Directories.txt","r");
 
@@ -156,6 +160,8 @@ void sd()
 
 void sh()
 {	
+
+	fflush(stdin);
 	FILE *sh;
 	sh = fopen("sh.txt","r");
 	printf("STRING SEARCHED\t TIME&DATE \n\n");
@@ -175,6 +181,8 @@ void sh()
  
 void searchadd(char ch[])
 {
+	fflush(stdin);
+	
 	FILE *sa;
 	sa = fopen("sh.txt","a");
 	
@@ -193,6 +201,8 @@ void searchadd(char ch[])
 //CLEARING SEARCH HISTORY
 void clearsearch()
 {
+	fflush(stdin);
+	
 	remove("sh.txt");
 	FILE *sh;
 	sh = fopen("sh.txt","w");
@@ -210,11 +220,13 @@ void deletedirectory()
 {
 	//Take input of file name to delete
 	
+	fflush(stdin);
+	
 	printf("Enter the name of file to be deleted:-\n");
 	char filename[20];
 	scanf("%s",filename);
 	
-	int status = 0;//remove(filename);
+	int status = remove(filename);
 
 	char a[20];
 	if(status == 0)
@@ -305,6 +317,8 @@ void createdirectory()
 {
 	//taking file name and content
 	
+	fflush(stdin);
+	
 	printf("Enter Name of File\n");
 	char new_file[20];
 	scanf("%s",new_file);
@@ -373,6 +387,7 @@ void response()
 
 void delay(unsigned int mseconds)
 {
+	
     clock_t goal = mseconds + clock();
     while (goal > clock());
 }
@@ -382,6 +397,8 @@ void delay(unsigned int mseconds)
 
 void loading()
 {
+	fflush(stdin);
+	
 	int i;
 	printf("Loading");
     for(i=0;i<7;i++)
@@ -395,37 +412,41 @@ void loading()
 // Append to Directory
 void dirappend()
 {
-printf("Enter the name of file you wanna append to: ");
-char filename[20];
-scanf("%s",filename);
-
-FILE *fp = fopen(filename,"a");
-
-if(fp == NULL)
-{
-	printf("No such file exists!");
-	response();
-}
-
-else
-	{
-	
-	char content[200];
-	printf("\n\nEnter the content you wanna append:\n");
 	fflush(stdin);
-	scanf("%[^\n]s",content);
 		
-	fprintf(fp,"\n %s",content);
+	printf("Enter the name of file you wanna append to: ");
+	char filename[20];
+	scanf("%s",filename);
 	
-	printf("Content Successfully Added!");
-	response();
+	FILE *fp = fopen(filename,"a");
+	
+	if(fp == NULL)
+	{
+		printf("No such file exists!");
+		response();
 	}
+	
+	else
+		{
+		
+		char content[200];
+		printf("\n\nEnter the content you wanna append:\n");
+		fflush(stdin);
+		scanf("%[^\n]s",content);
+			
+		fprintf(fp,"\n %s",content);
+		
+		printf("Content Successfully Added!");
+		fclose(fp);
+		response();
+		}
 }
 
 // DELETE A PARTICULAR LINE FROM A FILE
 
 void linedelete()
 {
+	fflush(stdin);
 	
     FILE *fileptr1, *fileptr2;
 
