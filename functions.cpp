@@ -8,16 +8,18 @@ void mainmenu()
 	fflush(stdin);
 	
 	system("cls");
-	printf("           -------------------------------------------------------------");
-	printf("\t\t\t\t\tWELCOME TO QUICK SEARCH !\n\n\n");
-	printf("\t\t\t1..Search Inbuilt Directories\n\n");
-	printf("\t\t\t2..Directories Operations\n\n");
-	printf("\t\t\t3..Search History\n\n");
-	printf("\t\t\t4..Exit\n\n");
-	printf("           -------------------------------------------------------------");
+	printf("\n\n\n\t\t-----------------------------------------\n");
+	printf("\t\t+\tWELCOME TO QUICK SEARCH !\t+\n");
+	printf("\t\t+\t_________________________\t+\n\t\t+\t\t\t\t\t+\n\t\t+\t\t\t\t\t+\n");
+	printf("\t\t+\t1..Search Inbuilt Directories\t+\n\t\t+\t\t\t\t\t+\n");
+	printf("\t\t+\t2..Directories Operations\t+\n\t\t+\t\t\t\t\t+\n");
+	printf("\t\t+\t3..Search History\t\t+\n\t\t+\t\t\t\t\t+\n");
+	printf("\t\t+\t4..Exit\t\t\t\t+\n\t\t+\t\t\t\t\t+\n");
+	printf("\t\t-----------------------------------------");
 
 	int choice;
-	printf("\n");
+	printf("\n\n\n");
+	printf("\t\t\tEnter Your Choice\n\t\t\t");
 	scanf("%d",&choice);
 	switch(choice)
 		{
@@ -35,7 +37,8 @@ void mainmenu()
 					printf("           -------------------------------------------------------------");
 	
 					int dchoice;
-					printf("\n");
+					printf("\n\n");
+					printf("\t\t\tENTER YOUR CHOICE\n\t\t\t");
 					scanf("%d",&dchoice);
 					switch(dchoice)
 						{
@@ -45,10 +48,11 @@ void mainmenu()
 						
 						case 4 : loading(); system("cls"); 
 								
-								printf("\t\t\t1..Append to Existing File\n\n");
-								printf("\t\t\t2..Delete Content From Existing File\n\n");
+								printf("1..Append to Existing File\n\n");
+								printf("2..Delete Content From Existing File\n\n");
 								
 								 int nchoice;
+								 printf("\n\nEnter Your Choice:");
 								 scanf("%d",&nchoice);
 								 
 								 switch(nchoice)
@@ -63,14 +67,15 @@ void mainmenu()
 			
 			
 			case 3 : loading(); system("cls"); 
-					printf("           -------------------------------------------------------------");
+					printf("           -----------------------------------------------------");
 					printf("\t\t\t\t\tSEARCH HISTORY OPERATIONS\n\n\n");
 					printf("\t\t\t1..Display Search History\n\n");
 					printf("\t\t\t2..Clear Search History\n\n");
-					printf("           -------------------------------------------------------------");
+					printf("           -----------------------------------------------------");
 
 					int shchoice;
-					printf("\n");
+					printf("\n\n");
+					printf("\t\t\tENTER YOUR CHOICE\n\t\t\t");
 					scanf("%d",&shchoice);
 					switch(shchoice)
 						{
@@ -92,17 +97,20 @@ int strcount(void)
 {
 	fflush(stdin);
 	
-	char a[25],b[25];
-	printf("Enter String to be Searched\n\n");
+	char a[1000],b[1000];
+	printf("----------------------------------");
+	printf("\n\nEnter String You Want To Search:\n\n");
 	scanf("%s",b);
+	char lowstr[1000];
+	strcpy(lowstr,strlwr(b));
 	int count=0,temp;
 		
-	printf("NAME OF FILE\tINSTANCES FOUND\n\n");
+	printf("\nNAME OF FILE WITH No. OF INSTANCE FOUND:\n\n");
 	
 	FILE *fp1;		
 	fp1 = fopen("Directories.txt","r");     //Reading List  of Files
 	
-	char file_name[20];
+	char file_name[50];
 	
 	while(!feof(fp1))
 	
@@ -118,18 +126,21 @@ int strcount(void)
 			while(!feof(fp))
 				{
 				fscanf(fp,"%s",a);
-				if(strcmp(a,b)==0){count++;}		//Comparsion of searched string with content in files files
+				if(strcmp(strlwr(a),lowstr)==0){count++;}		//Comparsion of searched string with content in files files
 				}	
 			
-		if(count!=0)
+		if(1)
 			{
-			printf("%s \t %d\n",file_name,count);
+			printf("%s..................%d instances found\n",file_name,count);
 			}
 		}
 		
+		printf("----------------------------------\n\n");
+		
 		searchadd(b);
 		response();
-	
+		
+
 }
 
 
@@ -142,7 +153,7 @@ void sd()
 	FILE *sd;
 	sd = fopen("Directories.txt","r");
 
-	printf("Search Directories are as Follows:-\n");
+	printf("Search Directories are as Follows:-\n\n\n");
 
 	char ch;
 	while(!feof(sd))
@@ -152,6 +163,7 @@ void sd()
 		}
 		
 	fclose(sd);
+	printf("\n\n");
 	
 	response();
 }
@@ -221,13 +233,14 @@ void deletedirectory()
 	//Take input of file name to delete
 	
 	fflush(stdin);
-	
 	printf("Enter the name of file to be deleted:-\n");
 	char filename[20];
 	scanf("%s",filename);
 	
 	int status = remove(filename);
 
+	
+	
 	char a[20];
 	if(status == 0)
 		{
@@ -250,9 +263,9 @@ void deletedirectory()
 			rewind(fp1);
 			fclose(fp1);
 	
-	
 	    
 	    
+	fflush(stdin);
 	 FILE *fileptr1, *fileptr2;
     
     int delete_line=count, temp = 1;
@@ -400,7 +413,7 @@ void loading()
 	fflush(stdin);
 	
 	int i;
-	printf("Loading");
+	printf("\t\t\tLoading");
     for(i=0;i<7;i++)
     {
     delay(150);

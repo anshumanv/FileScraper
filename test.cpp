@@ -1,19 +1,17 @@
-#include <dirent.h>
+
+
 #include <stdio.h>
+#include <string.h>
  
-int main(void)
+int main()
 {
-    DIR *d;
-    struct dirent *dir;
-    d = opendir("./files");
-    printf("Files are as Follows:-");
-    if (d)
-    {
-        while ((dir = readdir(d)) != NULL)
-        {
-            printf("%s\n", dir->d_name);
-        }
-        closedir(d);
-    }
-    return(0);
+   char string[1000];
+ 
+   printf("Input a string to convert to lower case\n");
+   gets(string);
+ 	char b[1000];
+ 	
+   printf("Input string in lower case: \"%s\"\n",strlwr(string));
+ 
+   return  0;
 }

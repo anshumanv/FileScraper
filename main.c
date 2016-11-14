@@ -7,6 +7,7 @@
 
 int main()
 {
+	system("color 3b");
 	mainmenu();
 
 return 0;
