@@ -28,13 +28,13 @@ void mainmenu()
 			
 			case 2 : loading(); system("cls"); 
 			
-					printf("           -------------------------------------------------------------");
-					printf("\t\t\t\t\tDIRECTORY OPERATIONS\n\n\n");
+					printf("\n\n\t\t______________________________________________\n\n");
+					printf("\t\t\t\tDIRECTORY OPERATIONS\n\n\n");
 					printf("\t\t\t1..Show Directories List\n\n");
 					printf("\t\t\t2..Create New Directory\n\n");
 					printf("\t\t\t3..Delete Existing Directory\n\n");
 					printf("\t\t\t4..Update Directories\n\n");
-					printf("           -------------------------------------------------------------");
+					printf(" \t\t______________________________________________");
 	
 					int dchoice;
 					printf("\n\n");
@@ -48,11 +48,11 @@ void mainmenu()
 						
 						case 4 : loading(); system("cls"); 
 								
-								printf("1..Append to Existing File\n\n");
-								printf("2..Delete Content From Existing File\n\n");
+								printf("\n\n\n\t\t1..Append to Existing File\n\n");
+								printf("\t\t2..Delete Content From Existing File\n\n");
 								
 								 int nchoice;
-								 printf("\n\nEnter Your Choice:");
+								 printf("\n\n\t\tEnter Your Choice:");
 								 scanf("%d",&nchoice);
 								 
 								 switch(nchoice)
@@ -67,7 +67,7 @@ void mainmenu()
 			
 			
 			case 3 : loading(); system("cls"); 
-					printf("           -----------------------------------------------------");
+					printf("\n\n\n           -----------------------------------------------------");
 					printf("\t\t\t\t\tSEARCH HISTORY OPERATIONS\n\n\n");
 					printf("\t\t\t1..Display Search History\n\n");
 					printf("\t\t\t2..Clear Search History\n\n");
@@ -129,7 +129,7 @@ int strcount(void)
 				if(strcmp(strlwr(a),lowstr)==0){count++;}		//Comparsion of searched string with content in files files
 				}	
 			
-		if(1)
+		if(count!=0)
 			{
 			printf("%s..................%d instances found\n",file_name,count);
 			}
@@ -144,6 +144,7 @@ int strcount(void)
 }
 
 
+
 //  SHOW DIRECTORIES
 
 void sd()
@@ -153,7 +154,7 @@ void sd()
 	FILE *sd;
 	sd = fopen("Directories.txt","r");
 
-	printf("Search Directories are as Follows:-\n\n\n");
+	printf("\n\n\tSearch Directories are as Follows:-\n\t__________________________________\n\n");
 
 	char ch;
 	while(!feof(sd))
@@ -176,7 +177,8 @@ void sh()
 	fflush(stdin);
 	FILE *sh;
 	sh = fopen("sh.txt","r");
-	printf("STRING SEARCHED\t TIME&DATE \n\n");
+	
+	printf("\n\nSTRING SEARCHED\t TIME&DATE \n_______________________________\n\n\n");
 	char ch;
 	while(!feof(sh))
 		{
@@ -219,7 +221,7 @@ void clearsearch()
 	FILE *sh;
 	sh = fopen("sh.txt","w");
 	fclose(sh);
-	printf("Search History Has Been Cleared !\n");
+	printf("\n\n\n\n\t\t\tSearch History Has Been Cleared !\n\n\n");
 	
 	response();
 	
@@ -233,7 +235,7 @@ void deletedirectory()
 	//Take input of file name to delete
 	
 	fflush(stdin);
-	printf("Enter the name of file to be deleted:-\n");
+	printf("\n\n\tEnter the name of file to be deleted:-\n\t");
 	char filename[20];
 	scanf("%s",filename);
 	
@@ -332,16 +334,17 @@ void createdirectory()
 	
 	fflush(stdin);
 	
-	printf("Enter Name of File\n");
+	printf("\n\n\tEnter Name of File:");
 	char new_file[20];
 	scanf("%s",new_file);
+	printf("\n\n\n");
 	
 	FILE *fp,*fp1;
 	
 	fp = fopen(new_file,"w+");
 	
 	char file_content[100];
-	printf("Enter Content for file %s\n",new_file);
+	printf("\tEnter Content for file %s\n\t",new_file);
 	fflush(stdin);
 	scanf("%[^\n]s",file_content);
 	fprintf(fp,"%s",file_content);
@@ -355,7 +358,7 @@ void createdirectory()
 	fprintf(fp1,"\n%s",new_file);
 	fclose(fp1);
 	
-	printf("%s was created successfully",new_file);
+	printf("\n\n\t\t%s was created successfully\n\n",new_file);
 	
 	response();
 	
@@ -371,26 +374,26 @@ void response()
 	fflush(stdin);
 	
 	char prompt;
-	printf("\nDO YOU WISH TO CONTINUE ? (Y/N)");
+	printf("\n\n\n\t\tDO YOU WISH TO CONTINUE ? (Y/N)");
 	
 	scanf("%c",&prompt);
 	
 	if(prompt == 'y' || prompt == 'Y')
 	{
-		printf("\nYou Picked Yes. : ) \n Redirecting you to Main Menu\n\n");
+		printf("\n\t\tYou Picked Yes. : ) \n\t\t Redirecting you to Main Menu\n\n");
 		loading();
 		mainmenu();
 	}
 	
 	else if(prompt == 'n' || prompt == 'N')
 	{
-		printf("You picked no. : ( \n Exitting Application...\n");
+		printf("\n\t\tYou picked no. : ( \n\t\t Exitting Application...\n");
 		exit(0);
 	}
 	
 	else
 	{
-		printf("INVALID RESPONSE  : ( \n");
+		printf("\n\t\tINVALID RESPONSE  : ( \n\n");
 		response();
 		
 	}
@@ -427,7 +430,7 @@ void dirappend()
 {
 	fflush(stdin);
 		
-	printf("Enter the name of file you wanna append to: ");
+	printf("\n\n\t\tEnter the name of file you wanna append to: ");
 	char filename[20];
 	scanf("%s",filename);
 	
@@ -435,7 +438,7 @@ void dirappend()
 	
 	if(fp == NULL)
 	{
-		printf("No such file exists!");
+		printf("\n\n\t\tNo such file exists!");
 		response();
 	}
 	
@@ -443,13 +446,13 @@ void dirappend()
 		{
 		
 		char content[200];
-		printf("\n\nEnter the content you wanna append:\n");
+		printf("\n\n\t\tEnter the content you wanna append:\n\t\t");
 		fflush(stdin);
 		scanf("%[^\n]s",content);
 			
 		fprintf(fp,"\n %s",content);
 		
-		printf("Content Successfully Added!");
+		printf("\t\tContent Successfully Added!\n\n\t\t");
 		fclose(fp);
 		response();
 		}
@@ -471,8 +474,8 @@ void linedelete()
 
  
 
-    printf("Enter file name to delete content from: ");
-
+    printf("\n\n\t\tEnter file name to delete content from: ");
+	printf("\n\n");
     scanf("%s", filename);
 
     //open file in read mode
@@ -481,14 +484,14 @@ void linedelete()
 	
 	if(fileptr1==NULL)
 		{
-			printf("No such file exists !");
+			printf("\t\tNo such file exists !");
 			response();
 		}
 	
 	
     ch = getc(fileptr1);
 	
-	printf("\n File Content is as Follows:-\n");
+	printf("\n\t\tFile Content is as Follows:-\n\n\n");
    while (ch != EOF)
 
     {
@@ -503,10 +506,10 @@ void linedelete()
 
     rewind(fileptr1);
 
-    printf(" \n Enter line number to be deleted:");
+    printf(" \n\t\tEnter line number to be deleted: ");
 
     scanf("%d", &delete_line);
-
+	printf("\n\n");
     //open new file in write mode
 
     fileptr2 = fopen("replica.c", "w");
@@ -548,7 +551,7 @@ void linedelete()
     rename("replica.c", filename);
 
 
-    printf("\n\n The contents of file after being modified are as follows:\n");
+    printf("\n\n\t\tThe contents of file after being modified are as follows:\n");
 
     fileptr1 = fopen(filename, "r");
 
