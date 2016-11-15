@@ -99,7 +99,7 @@ int strcount(void)
 	
 	char a[1000],b[1000];
 	printf("----------------------------------");
-	printf("\n\nEnter String You Want To Search:\n\n");
+	printf("\n\nEnter Keyword You Want To Search:\n\n");
 	scanf("%s",b);
 	char lowstr[1000];
 	strcpy(lowstr,strlwr(b));
@@ -243,7 +243,7 @@ void deletedirectory()
 
 	
 	
-	char a[20];
+	char a[50];
 	if(status == 0)
 		{
 			printf("File was removed successfully\n");
@@ -265,15 +265,11 @@ void deletedirectory()
 			rewind(fp1);
 			fclose(fp1);
 	
-	    
-	    
-	fflush(stdin);
 	 FILE *fileptr1, *fileptr2;
     
     int delete_line=count, temp = 1;
 	char ch;
 	
-	fflush(stdin);
     //open file in read mode
 	fileptr1 = fopen("Directories.txt","r");
     fileptr2 = fopen("replica.c", "w");
@@ -295,7 +291,6 @@ void deletedirectory()
             if (temp != delete_line)
 
             {
-
                 //copy all lines in file replica.c
 
                 putc(ch, fileptr2);
@@ -452,7 +447,7 @@ void dirappend()
 			
 		fprintf(fp,"\n %s",content);
 		
-		printf("\t\tContent Successfully Added!\n\n\t\t");
+		printf("\n\n\n\t\tContent Successfully Added!\n\n\t\t");
 		fclose(fp);
 		response();
 		}
@@ -475,7 +470,7 @@ void linedelete()
  
 
     printf("\n\n\t\tEnter file name to delete content from: ");
-	printf("\n\n");
+	printf("\n\n\t\t");
     scanf("%s", filename);
 
     //open file in read mode
@@ -484,14 +479,14 @@ void linedelete()
 	
 	if(fileptr1==NULL)
 		{
-			printf("\t\tNo such file exists !");
+			printf("\n\n\t\tNo such file exists !");
 			response();
 		}
 	
 	
     ch = getc(fileptr1);
 	
-	printf("\n\t\tFile Content is as Follows:-\n\n\n");
+	printf("\n\n\t\tFile Content is as Follows:-\n\n\n");
    while (ch != EOF)
 
     {
@@ -506,10 +501,10 @@ void linedelete()
 
     rewind(fileptr1);
 
-    printf(" \n\t\tEnter line number to be deleted: ");
+    printf(" \n\n\n\t\tEnter line number to be deleted: ");
 
     scanf("%d", &delete_line);
-	printf("\n\n");
+	printf("\n\n\n");
     //open new file in write mode
 
     fileptr2 = fopen("replica.c", "w");
@@ -551,7 +546,7 @@ void linedelete()
     rename("replica.c", filename);
 
 
-    printf("\n\n\t\tThe contents of file after being modified are as follows:\n");
+    printf("\n\nThe contents of file after being modified are as follows:\n\n\n");
 
     fileptr1 = fopen(filename, "r");
 
