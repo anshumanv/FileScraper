@@ -25,7 +25,6 @@ void mainmenu()
 		{
 			case 1 : loading(); system("cls");  strcount(); break;
 			
-			
 			case 2 : loading(); system("cls"); 
 			
 					printf("\n\n\t\t______________________________________________\n\n");
@@ -63,7 +62,6 @@ void mainmenu()
 						}
 					
 					 break;
-			
 			
 			
 			case 3 : loading(); system("cls"); 
